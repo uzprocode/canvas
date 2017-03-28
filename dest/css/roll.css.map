@@ -1,0 +1,1 @@
+{"version":3,"sources":["roll.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,eAAe,EAChB;;AACD;EACE,uBAAuB;EACvB,cAAc;EACd,cAAc;EACd,uBAAuB,EACxB","file":"roll.css","sourcesContent":["body{\n  background-color: #000012;\n  color: #ffcc00;\n}\n#rollAni{\n  background-color: #fff;\n  width: 1300px;\n  height: 768px;\n  border: 5px solid #ccc;\n}\n"]}

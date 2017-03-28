@@ -78,7 +78,7 @@ let plumberOptions = {
   errorHandler: $.wdUtil.err
 };
 
-gulp.task('js', () => {
+gulp.task('buildJs', () => {
   return gulp.src(`${paths.base}${paths.js.org}*.js`)
     .pipe($.debug({title: 'do Js....'}))
     .pipe($.plumber(plumberOptions))
@@ -112,7 +112,12 @@ gulp.task('watch:html', function (callback) {
   'browser-sync--reload'
   )(callback);
 });
-
+gulp.task('watch:js', function (callback) {
+  $.sequence(
+  'buildJs',
+  'browser-sync--reload'
+  )(callback);
+});
 //browser-sync
 gulp.task('browser-sync', () => {
   $.browsersync.init({
@@ -122,6 +127,7 @@ gulp.task('browser-sync', () => {
     }
   });
   gulp.watch(`${paths.base}${paths.css.org}**/*.scss`, ['watch:css']);
+  gulp.watch(`${paths.base}${paths.js.org}/**/*.js`, ['watch:js']);
   gulp.watch(`${paths.base}/*.html`, ['watch:html']);
 });
 gulp.task('browser-sync--reload', function () {
@@ -133,7 +139,7 @@ gulp.task('default', (callback) => {
   $.sequence(
   //'html:buildTemplate',
   'clean',
-  ['scss','js','html'],
+  ['scss','buildJs','html'],
   'browser-sync'
   )(callback);
 });
