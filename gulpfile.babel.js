@@ -12,7 +12,7 @@ $.wdUtil = (function() {
     log: (msg) => {
       $.util.log($.util.colors.yellow(msg));
     },
-    error: (err) => {
+    error: function(err){
       $.notify.onError({title: "Error", message: "<%= error %>"})(err);
       this.emit('end');
     }
@@ -75,7 +75,7 @@ gulp.task('watch:css', ['scss'], function () {
 //ES6Js
 //将ES6转换成可以在浏览器中运行的代码
 let plumberOptions = {
-  errorHandler: $.wdUtil.err
+  errorHandler: $.wdUtil.error
 };
 
 gulp.task('buildJs', () => {
