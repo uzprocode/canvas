@@ -43,6 +43,7 @@
     "gulp-watch": "^4.3.10",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
+    "lodash": "^4.17.4",
     "merge": "^1.2.0",
     "merge-stream": "^1.0.0",
     "react": "^15.4.2",
